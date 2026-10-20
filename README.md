@@ -1,0 +1,26 @@
+# Clash Verge 服务一键补装
+
+适用于 Windows 10/11，使用 Clash Verge 自带安装器补装服务。
+
+## 下载与使用
+
+下载本仓库中的 [Clash-Verge-Service-Repair.zip](Clash-Verge-Service-Repair.zip)，完整解压后双击 Start-Repair.bat。
+
+请先解压整个压缩包，保留 BAT 和 PS1 在同一文件夹，然后双击 Start-Repair.bat。
+
+Clash Verge 服务一键补装（Windows 10/11）
+
+1. 先安装 Clash Verge / Clash Verge Rev。
+2. 双击 Start-Repair.bat，管理员授权提示选“是”。
+3. 看到绿色 SUCCESS 后，重新打开 Clash Verge；如有“服务模式”开关，先开启，再打开虚拟网卡模式（TUN）。
+
+脚本自动查找常见安装目录、注册表及运行中的 Clash Verge，使用软件自带的安装器补装服务。已安装时不重复安装，只启动服务并设为自动启动。
+不下载程序，不修改订阅、节点、代理配置或防火墙，不自动开启 TUN。
+
+找不到目录时：把 BAT 和 PS1 两个文件一起放到 clash-verge.exe 所在文件夹，再双击；或按提示输入安装文件夹完整路径。
+仅适用于服务名为 clash_verge_service，且自带 resources\clash-verge-service-install.exe 的版本。不适用于 FlClash、Clash for Windows、手机或 macOS。
+其他原因造成的 TUN 故障需要根据错误另行排查。避免同时开启多款代理软件的 TUN。
+
+FAILED 表示失败，请保留报错文字或截图。取消管理员授权则不会继续补装。
+只读检查命令：powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Repair-Service.ps1 -CheckOnly
+窗口使用英文以避免不同 Windows 编码导致乱码。
